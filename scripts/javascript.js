@@ -23,3 +23,39 @@ function getComputerChoice () {
 };
 
 console.log(getComputerChoice());
+
+function playRound(humanChoice, computerChoice) {
+    humanChoice = humanChoice.toLowerCase();
+
+    switch (humanChoice){ 
+        case "rock":
+            if (computerChoice === "rock") {
+                console.log("It's a draw!");
+            } else if (computerChoice === "paper") {
+                console.log("You lose!");
+            } else {
+                console.log("You win!");
+            }
+            break;
+        case "paper":
+            if (computerChoice === "rock") {
+                console.log("You won!");
+            } else if (computerChoice === "paper") {
+                console.log("It's a draw!");
+            } else {
+                console.log("You lose!");
+            }
+            break;
+        case "scissors":
+              if (computerChoice === "rock") {
+                console.log("You lose!");
+            } else if (computerChoice === "paper") {
+                console.log("You win!");
+            } else {
+                console.log("It's a draw!");
+            }
+            break;
+    };
+};
+
+playRound(getHumanChoice(), getComputerChoice());

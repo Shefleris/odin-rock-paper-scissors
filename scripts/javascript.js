@@ -15,16 +15,12 @@ function getHumanChoice () {
     return prompt("Choose which one you want to use: Rock, Paper, Scissors"); 
 };
 
-console.log(getHumanChoice());
-
 function getComputerChoice () {
     let computerChoices = ["rock", "paper", "scissors"];
     return computerChoices[Math.floor(Math.random() * computerChoices.length)];
 };
 
-console.log(getComputerChoice());
-
-function playRound(humanChoice, computerChoice) {
+function playRound(humanChoice, computerChoice, humanScore, computerScore) {
     humanChoice = humanChoice.toLowerCase();
 
     switch (humanChoice){ 
@@ -33,24 +29,30 @@ function playRound(humanChoice, computerChoice) {
                 console.log("It's a draw!");
             } else if (computerChoice === "paper") {
                 console.log("You lose!");
+                return computerScore++;
             } else {
                 console.log("You win!");
+                return humanScore++;
             }
             break;
         case "paper":
             if (computerChoice === "rock") {
                 console.log("You won!");
+                return humanScore++;
             } else if (computerChoice === "paper") {
                 console.log("It's a draw!");
             } else {
                 console.log("You lose!");
+                return computerScore++;
             }
             break;
         case "scissors":
               if (computerChoice === "rock") {
                 console.log("You lose!");
+                return computerScore++;
             } else if (computerChoice === "paper") {
                 console.log("You win!");
+                return humanScore++;
             } else {
                 console.log("It's a draw!");
             }
@@ -58,4 +60,22 @@ function playRound(humanChoice, computerChoice) {
     };
 };
 
-playRound(getHumanChoice(), getComputerChoice());
+function playGame () {
+    let humanScore = 0;
+    let computerScore = 0;
+
+    for (let roundNr = 1; roundNr <= 5; roundNr++) {
+        console.log("Round nr. " + roundNr);
+        playRound(getHumanChoice(),getComputerChoice());
+    };
+
+    if (humanScore < computerScore) {
+        console.log("You lost the game. Computer Wins! Try again");
+    } else if (humanScore === computerScore) {
+        console.log("The game was a draw. Try again");
+    } else {
+        console.log("You won the game. Congratulations!");
+    }
+};
+
+playGame();

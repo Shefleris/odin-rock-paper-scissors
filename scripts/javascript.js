@@ -10,3 +10,9 @@
     6. Repeat steps 1 through 5 until the round number equals 5
     7. Announce the game winner.
 */
+
+function getHumanChoice () {
+    return prompt("Choose which one you want to use: Rock, Paper, Scissors"); 
+};
+
+console.log(getHumanChoice());

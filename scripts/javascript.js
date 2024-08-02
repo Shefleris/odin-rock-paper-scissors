@@ -18,12 +18,22 @@ function playRound(humanChoice, computerChoice) {
     } else if (humanChoice == "paper" && computerChoice == "rock") {
         displayResult("win");
         humanScore++;
-    };  
-       
-    checkForGameEnd();
-    updateRoundNr();
+    } else if (humanChoice == "scissors" && computerChoice == "paper") {
+        displayResult("win");
+        humanScore++;
+    } else if (humanChoice == "scissors" && computerChoice == "rock") {
+        displayResult("loss");
+        computerScore++;
+    } else {
+        console.log("error");
+    };
+    
     updateScore();
-
+    if (checkForGameEnd()) {
+        updateScore();
+    } else {
+        updateRoundNr();
+    };
 };
 
 function getComputerChoice () {
@@ -43,8 +53,24 @@ function restartGame () {
     roundNr = 1;
     toggleChoiceButtons();
 };
-//  UI
 
+function toggleChoiceBtn () {
+    const rockBtn = document.getElementById("rock");
+    const paperBtn = document.getElementById("paper");
+    const scissorsBtn = document.getElementById("scissors");
+
+    if (rockBtn.disabled == false || paperBtn.disabled == false || scissorsBtn.disabled == false ) {
+        rockBtn.disabled = true;
+        paperBtn.disabled = true;
+        scissorsBtn.disabled = true;
+    } else {
+        rockBtn.disabled = false;
+        paperBtn.disabled = false;
+        scissorsBtn.disabled = false;
+    };
+};
+
+//  UI
 const choice = document.querySelector("#choice-menu");
 
 choice.addEventListener('click', (event) => {
@@ -77,21 +103,5 @@ function finalScoreMsg () {
         console.log("You lost the game. Computer Wins! Try again");
     } else {
         console.log("You won the game. Congratulations!");
-    };
-};
-
-function toggleChoiceBtn () {
-    const rockBtn = document.getElementById("rock");
-    const paperBtn = document.getElementById("paper");
-    const scissorsBtn = document.getElementById("scissors");
-
-    if (rockBtn.disabled == false || paperBtn.disabled == false || scissorsBtn.disabled == false ) {
-        rockBtn.disabled = true;
-        paperBtn.disabled = true;
-        scissorsBtn.disabled = true;
-    } else {
-        rockBtn.disabled = false;
-        paperBtn.disabled = false;
-        scissorsBtn.disabled = false;
     };
 };

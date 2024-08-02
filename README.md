@@ -4,3 +4,4 @@ This is the third project within The self paced Odin project course. The goal of
 ## Links
 - [Try the page](https://shefleris.github.io/odin-rock-paper-scissors)
 - [Link to the assignment](https://www.theodinproject.com/lessons/foundations-rock-paper-scissors)
+- [Link to the revisiting assignment](https://www.theodinproject.com/lessons/foundations-revisiting-rock-paper-scissors)

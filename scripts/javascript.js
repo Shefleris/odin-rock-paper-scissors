@@ -54,22 +54,6 @@ function restartGame () {
     toggleChoiceButtons();
 };
 
-function toggleChoiceBtn () {
-    const rockBtn = document.getElementById("rock");
-    const paperBtn = document.getElementById("paper");
-    const scissorsBtn = document.getElementById("scissors");
-
-    if (rockBtn.disabled == false || paperBtn.disabled == false || scissorsBtn.disabled == false ) {
-        rockBtn.disabled = true;
-        paperBtn.disabled = true;
-        scissorsBtn.disabled = true;
-    } else {
-        rockBtn.disabled = false;
-        paperBtn.disabled = false;
-        scissorsBtn.disabled = false;
-    };
-};
-
 //  UI
 const choice = document.querySelector("#choice-menu");
 
@@ -103,5 +87,28 @@ function finalScoreMsg () {
         console.log("You lost the game. Computer Wins! Try again");
     } else {
         console.log("You won the game. Congratulations!");
+    };
+};
+
+function restartGame () {
+    humanScore = 0;
+    computerScore = 0;
+    roundNr = 1;
+    toggleChoiceButtons();
+};
+
+function toggleChoiceBtn () {
+    const rockBtn = document.getElementById("rock");
+    const paperBtn = document.getElementById("paper");
+    const scissorsBtn = document.getElementById("scissors");
+
+    if (rockBtn.disabled == false || paperBtn.disabled == false || scissorsBtn.disabled == false ) {
+        rockBtn.disabled = true;
+        paperBtn.disabled = true;
+        scissorsBtn.disabled = true;
+    } else {
+        rockBtn.disabled = false;
+        paperBtn.disabled = false;
+        scissorsBtn.disabled = false;
     };
 };

@@ -49,7 +49,7 @@ function restartGame () {
     humanScore = 0;
     computerScore = 0;
     roundNr = 1;
-    toggleChoiceButtons();
+    toggleChoiceBtn();
 };
 
 //  UI
@@ -95,7 +95,7 @@ function restartGame () {
     humanScore = 0;
     computerScore = 0;
     roundNr = 1;
-    toggleChoiceButtons();
+    toggleChoiceBtn();
 };
 
 function toggleChoiceBtn () {

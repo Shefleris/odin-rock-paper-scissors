@@ -25,7 +25,7 @@ function playRound(humanChoice, computerChoice) {
         displayResult("loss");
         computerScore++;
     } else {
-        console.log("error");
+        return console.log("error");
     };
     
     updateScore();

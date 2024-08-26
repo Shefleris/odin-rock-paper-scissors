@@ -42,6 +42,7 @@ function checkForGameEnd () {
     if (humanScore == 5 || computerScore == 5) {
         toggleChoiceBtn();
         finalScoreMsg();
+        createRestartGameBtn();
     };
 };
 
@@ -57,7 +58,12 @@ const choice = document.querySelector("#choice-menu");
 
 choice.addEventListener('click', (event) => {
     let humanChoice = event.target.id;
-    playRound(humanChoice, getComputerChoice());
+    if (humanChoice == "rock" || humanChoice == "paper" || humanChoice == "scissors"){
+        playRound(humanChoice, getComputerChoice());
+    } else if (humanChoice == "restart") {
+        restartGame();
+        removeRestartGameBtn();
+    };
 });
 
 function displayResult (result) {
@@ -91,13 +97,6 @@ function finalScoreMsg () {
     };
 };
 
-function restartGame () {
-    humanScore = 0;
-    computerScore = 0;
-    roundNr = 1;
-    toggleChoiceBtn();
-};
-
 function toggleChoiceBtn () {
     const rockBtn = document.getElementById("rock");
     const paperBtn = document.getElementById("paper");
@@ -112,4 +111,16 @@ function toggleChoiceBtn () {
         paperBtn.disabled = false;
         scissorsBtn.disabled = false;
     };
+};
+
+function createRestartGameBtn () {
+    const restartButton = document.createElement("button");
+    restartButton.innerText = "⟳";
+    restartButton.setAttribute("id", "restart");
+    document.getElementById("choice-menu").appendChild(restartButton);
+};
+
+
+function removeRestartGameBtn () {
+    document.getElementById("restart").remove();
 };

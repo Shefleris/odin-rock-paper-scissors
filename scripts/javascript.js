@@ -7,13 +7,13 @@ function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
         displayResult("draw");
     } else if (humanChoice == "rock" && computerChoice == "paper") {
-        displayResult("loss");
+        displayResult("lost");
         computerScore++;
     } else if (humanChoice == "rock" && computerChoice == "scissors") {
         displayResult("win");
         humanScore++;
     }  else if (humanChoice == "paper" && computerChoice == "scissors") {
-        displayResult("loss");
+        displayResult("lost");
         computerScore++;
     } else if (humanChoice == "paper" && computerChoice == "rock") {
         displayResult("win");
@@ -22,18 +22,15 @@ function playRound(humanChoice, computerChoice) {
         displayResult("win");
         humanScore++;
     } else if (humanChoice == "scissors" && computerChoice == "rock") {
-        displayResult("loss");
+        displayResult("lost");
         computerScore++;
     } else {
         return console.log("error");
     };
     
     updateScore();
-    if (checkForGameEnd()) {
-        updateScore();
-    } else {
-        updateRoundNr();
-    };
+    updateRoundNr();
+    checkForGameEnd();
 };
 
 function getComputerChoice () {

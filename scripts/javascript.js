@@ -80,9 +80,12 @@ function updateRoundNr () {
 };
 
 function finalScoreMsg () {
+    const createResult =  document.querySelector("#result");
     if (humanScore < computerScore) {
+        createResult.textContent = "You lost the game. Computer Wins! Try again!";
         console.log("You lost the game. Computer Wins! Try again");
     } else {
+        createResult.textContent = "You won the game. Congratulations!";
         console.log("You won the game. Congratulations!");
     };
 };

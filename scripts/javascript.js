@@ -39,9 +39,10 @@ function getComputerChoice () {
 };
 
 function checkForGameEnd () {
-    if (humanScore == 5 || computerScore == 5)
+    if (humanScore == 5 || computerScore == 5) {
         toggleChoiceBtn();
         finalScoreMsg();
+    };
 };
 
 function restartGame () {
